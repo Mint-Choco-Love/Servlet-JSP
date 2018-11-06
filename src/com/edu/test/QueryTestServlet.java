@@ -18,6 +18,31 @@ public class QueryTestServlet extends HttpServlet {
 		out.print("<html><head><title> Query 문자열 테스트 </title></head>");
 		out.print("<body>");
 		out.print("<h1> GET 방식으로 요청되었습니다. </h1>");
+		
+		/////
+		String id = req.getParameter("id");
+		String password = req.getParameter("pwd");
+		String name = req.getParameter("hobby");
+		String[] hobbies = req.getParameterValues("hobby");
+		String gender = req.getParameter("gender");
+		String religion = req.getParameter("religion");
+		String intro = req.getParameter("introduction");
+		
+		out.print("ID : " + id + "<br /");
+		out.print("비밀번호 : " + password + "<br />");
+		out.print("이름 : " + name + "<br />");
+		out.print("취미 : ");
+		for(int i = 0; i < hobbies.length; i++)
+		{
+			out.print(hobbies[i] + " ");
+		}
+		out.print("<br />");
+		out.print("성별 : " + gender + "<br />");
+		out.print("종교 : " + religion + "<br />");
+		out.print("소개 : " + intro + "<br />");
+		out.print("전체 질의 문자열 : " + req.getQueryString());
+		
+		/////
 		out.print("</body></html>");
 		out.close();
 	}
