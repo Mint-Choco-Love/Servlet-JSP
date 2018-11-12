@@ -1,7 +1,9 @@
 package com.edu.test;
 
 import javax.servlet.*;
+import javax.servlet.annotation.*;
 
+@WebFilter("/*")
 public class FlowFilterTwo implements Filter {
 	
 	public void init(FilterConfig config)
